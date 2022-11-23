@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap');
+
+@font-face{
+    font-family: "font-1";
+    src: url(./assets/Lora-Medium.ttf)
+}
+
+/* *{
+    margin: 0;
+    padding: 0;
+} */
+
+body{
+font-family: "font-1";
+background:url(./background.jpg) fixed center/cover; 
+height: 500vh;
+}
+
+
+h1{
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 3rem;
+    color:rgb(164, 71, 250);
+    text-shadow: 5px 0 0 black;
+    text-align: center;
+    font-family: 'Rubik Distressed', cursive;
+}
+
+main {
+    background: rgba(163, 71, 250, 0.527);
+    width: 90%;
+    min-height: 500px;
+    margin: 0 auto;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: black 14px -17px 20px 0px;
+}
+
+
+.positioning,
+.flexbox,
+.grid {
+    border: 2px solid black;
+    padding : 10px;
+    margin-top: 20px;
+    border-radius: 10px;   
+}
+
+
+/********************* Positioning ****************/
+.positioning{
+    position: relative;
+}
+
+h2{
+    margin: 0;
+}
+
+#circle {
+    height : 60px;
+    width: 60px;
+    background: green;
+    padding: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    right: 50px;
+    z-index: 1;
+}
+
+#rectangle {
+    height : 15px;
+    width : 100px;
+    background: greenyellow;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* transform: translateX(-50%) translateY(-50%); */
+    transform: translate(-50%, -50%);
+}
+
+
+/***************** Flexbox ****************/
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+    font-size: 0.7rem;
+    height: 160px;
+    width: 160px;
+    /* background: url(./background.jpg) center/cover; */
+    background: pink;
+    /* centrer verticalement */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/**************** Grid ******************/
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    padding: 20px;
+}
+
+.img {
+text-align: center;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "i1 i2"
+    "ta ta"
+    "bt bt";
+}
+
+input,
+textarea {
+    margin: 5px;
+    height: 45px;
+    border: 1px solid blue;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: "font-1";
+
+}
+
+#firstname {
+    grid-area: i1;
+}
+
+#surname {
+    grid-area: i2;
+}
+
+textarea {
+    grid-area: ta;
+    resize: none;
+}
+
+input[type="submit"] {
+    grid-area: bt;
+    cursor: pointer;
+    background: white;
+    transition: 0.4s;
+}
+
+input[type="submit"]:hover {
+    background: blue;
+    color: white;
+}
+
+
+/*************** Responsive ***************/
+
+@media screen and (max-width: 1000px){
+    .grid-container{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 780px){
+    form {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        "i1" 
+        "i2"
+        "ta" 
+        "bt";
+    }
+}
